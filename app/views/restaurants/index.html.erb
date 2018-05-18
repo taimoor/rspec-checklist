@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Restaurants</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-9">
+    <%= form_for :restaurant, url: search_path, html: { class: "form-inline" } do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, value: params[:restaurant].try(:[], :name), class: 'form-control', placeholder: 'Search by Name' %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :address, value: params[:restaurant].try(:[], :address), class: 'form-control', placeholder: 'Search by Address' %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :city, value: params[:restaurant].try(:[], :city), class: 'form-control', placeholder: 'Search by City' %>
+        </div>
+        <%= f.submit 'Search', class: 'btn btn-default' %>
+        <%= link_to 'Reset', restaurants_url, class: 'btn btn-default' %>
+    <% end %>
+  </div>
+  <div class="col-sm-3">
+    <%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-default pull-right', style: 'margin-top: 14px' %>
+  </div>
+</div>
+<br/>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <% if user_signed_in? %>
+          <th>Mark Favorite</th>
+          <th>Upvote</th>
+          <th>Downvote</th>
+    <% end %>
+      <th>Up</th>
+      <th>DownVote</th>
+      <th>Total Votes</th>
+      <th>Vote History</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.city %></td>
+        <% if user_signed_in? %>
+           <td> <%= check_box_tag restaurant.id, restaurant.id,  restaurant.favorites.where(user_id: current_user.id)[0].try(:favorite_res), {id: restaurant.id, class: 'favorite'}  %></td>
+            <td><%= button_tag :upvote, value: 'upvote', id: restaurant.id, class: 'upvote btn btn-sm btn-info'  %></td>
+            <td><%= button_tag :downvote, value: 'downvote', id: restaurant.id, class: 'downvote  btn btn-sm btn-info'  %></td>
+      <% end %>
+        <td>
+          <span class="<%= restaurant.id %>_up"><%= restaurant.user_votes.sum(:upvote) %></span>
+          <td><span class="<%= restaurant.id %>_down"><%= restaurant.user_votes.sum(:downvote) %></span></td>
+        <td>
+          <span class="<%= restaurant.id %>_total"><%= restaurant.user_votes.sum(:upvote)- restaurant.user_votes.sum(:downvote) %></span>
+        </td>
+        <td><%= link_to 'History', vote_history_path(id: restaurant), class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to 'Show', restaurant, class: 'btn btn-primary btn-sm' %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<script language="JavaScript" type="text/javascript"></script>
+<script>
+    $(".upvote").click(function () {
+      var upvote = $(this).attr("id");
+      $.ajax({
+        url: 'restaurants/' + $(this).attr("id"),
+        type: 'patch',
+        data: {'restaurant' : {'upvote' : parseInt($('.' + $(this).attr("id") + '_up').text()) + 1} },
+        success: function(data){
+          $('.' + upvote + '_up').text(data.upvote);
+          $('.' + upvote + '_down').text(data.downvote);
+          $('.' + upvote + '_total').text(data.upvote - data.downvote);
+        }
+      })
+    });
+    $(".downvote").click(function () {
+      var upvote = $(this).attr("id");
+      $.ajax({
+        url: 'restaurants/' + $(this).attr("id"),
+        type: 'patch',
+        data: {'restaurant' : {'downvote' : parseInt($('.' + $(this).attr("id") + '_down').text()) + 1 } },
+        success: function(data){
+          $('.' + upvote + '_up').text(data.upvote);
+          $('.' + upvote + '_down').text(data.downvote);
+          $('.' + upvote + '_total').text(data.upvote - data.downvote);
+        }
+      })
+    });
+    $('.favorite').click(function() {
+      var checked;
+      if ($(this).is(':checked')) {
+        checked = 'true';
+      } else {
+        checked = 'false';
+      }
+      $.ajax({
+        type: "patch",
+        url: "/favorite",
+        data: {id: $(this).attr("id"), checked: checked},
+        beforeSend: function(){
+          $("#flash_notice").text('Loading... Please wait');
+          $('#flash_notice').show();
+        },
+        success: function (data, textStatus) {
+          $("#flash_notice").text('Action completed successfully');
+          $('#flash_notice').show();
+        }
+      })
+    }
+    );
+</script>

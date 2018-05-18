@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SplitTheCheck</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body>
+  <div class="container-fluid">
+    <p class="notice" id="flash_notice" style="display: <%= notice ? '' : 'none' %>"><%= notice %></p>
+    <p class="alert" id="flash_error" style="display: <%= alert ? '' : 'none' %>"><%= alert %></p>
+    <div id="user_nav">
+      <% if current_user %>
+          Logged in as <span class="text-info"><%= current_user.email %>.</span>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-default' %>
+          <%= link_to "My Summary", user_summary_path, class: 'btn btn-sm btn-warning' %>
+      <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-sm btn-default' %> or
+          <%= link_to "log in", new_user_session_path, class: 'btn btn-sm btn-default' %>
+      <% end %>
+    </div>
+    <%= yield %>
+  </div>
+  </body>
+</html>

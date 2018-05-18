@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: First Hotel
+  address: New Street 23
+  city: Newyork
+
+two:
+  name: Second Hotel
+  address: New Street 20
+  city: Newyork

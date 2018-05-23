@@ -1,45 +1,52 @@
 require 'rails_helper'
 
 
-RSpec.feature 'Note', js:true, type: :feature do
+RSpec.feature 'Restaurant', js:true, type: :feature do
 # RSpec.describe 'Note', js:true do
-
-  before :all do
-    # with_registered_user
-    # user = FactoryBot.create(:user)
-    # user.confirmed_at = Time.now
-    # user.save
-    # login_as(user, :scope => :user)
-
-    # user = FactoryBot.create(:user)
-    # login_as(user, :scope => :user, :run_callbacks => false)
+  before(:context) { @list = [] }
+  before :each do
     with_registered_user
   end
 
-  before :each do
-    # sample_meeting = FactoryGirl.create(:meeting, :with_sample_data)
-    # visit_meeting_page(sample_meeting.id)
+
+  scenario 'marks favorite' do
+    @list << 2
+    input = first(:xpath, "//*[@id='1']")
+    input.click
+    expect(input).to be_checked
+    page.save_screenshot('screenshot.png')
   end
 
-  scenario 'with title on  hover' do
-    # create_first_topic
-    # topic = get_first_topic
-    # topic.hover
-    # create_note(topic['id'])
-    # note_container = first(:xpath,"//*[@id=\"#{first('.item-container.note')['id']}\"]")
-    # note = get_first_note
-    # note.set('Note Title')
-    # note.hover
-    # note_id = note['id']
-    # verify_item_controls_visibility(note_id)
+  scenario 'removes favorite' do
+    @list << 1
     page.save_screenshot('screenshot00.png')
     input = first(:xpath, "//*[@id='1']")
     input.click
-    page.save_screenshot('screenshot01.png')
-    expect(true).to be_truthy
+    expect(input).not_to be_checked
+    page.save_screenshot('screenshot.png')
+    end
+  # scenario 'upvote' do
+  #   first('button.upvote').click
+  #   page.save_screenshot('screenshot01.png')
+  #   expect(true).not_to false
+  #
+  #   # page.save_screenshot('screenshot.png')
+  # end
 
-    # page.save_screenshot('screenshot.png')
-  end
+  # scenario 'downvote' do
+  #   span = first('span.down-1')
+  #   value = span.text
+  #   page.save_screenshot('screenshot00.png')
+  #   first('button.downvote').click
+  #   first('button.downvote').click
+  #   span = first('span.down-1')
+  #   value = span.text
+  #   puts value
+  #   page.save_screenshot('screenshot01.png')
+  #   expect(true).to be_truthy
+  #
+  #   # page.save_screenshot('screenshot.png')
+  # end
 
   # scenario 'with title' do
   #   note = get_first_note

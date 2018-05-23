@@ -43,6 +43,15 @@ group :development, :test do
   gem 'faker'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'database_cleaner'
+
+  gem 'capybara-webkit'  #webdriver
+  gem 'chromedriver-helper'
+  gem 'capybara-angular' #wait_until_angular_ready
+  gem 'capybara-screenshot'
+  gem 'rb-inotify', '~> 0.9'
+  gem 'spork', '~> 0.9.2'
+  gem 'pry'
 end
 
 group :development do

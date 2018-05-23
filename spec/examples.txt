@@ -1,0 +1,5 @@
+example_id                                           | status | run_time        |
+---------------------------------------------------- | ------ | --------------- |
+./spec/features/meetings/free_form/note_spec.rb[1:1] | passed | 0.21966 seconds |
+./spec/features/restaurant_spec.rb[1:1]              | failed | 11.42 seconds   |
+./spec/features/restaurant_spec.rb[1:2]              | failed | 7.34 seconds    |

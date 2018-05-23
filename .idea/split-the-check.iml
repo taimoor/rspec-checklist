@@ -132,19 +132,26 @@
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v5.1.6, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v5.1.6, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.5.2, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="archive-zip (v0.11.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v8.0.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.11, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.5.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.1, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v10.0.2, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v2.18.0, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="capybara-angular (v0.2.6, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="capybara-screenshot (v1.0.21, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="capybara-webkit (v1.15.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v0.9.0, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="chromedriver-helper (v1.2.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.2, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.2.2, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.12.2, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.0.5, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.7.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.4.3, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.7.1, rbenv: 2.5.0) [gem]" level="application" />
@@ -159,6 +166,7 @@
     <orderEntry type="library" scope="PROVIDED" name="guard-compat (v1.2.1, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rspec (v4.7.3, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.0.1, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="io-like (v0.3.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.7.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="launchy (v2.4.3, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.1.5, rbenv: 2.5.0) [gem]" level="application" />
@@ -202,6 +210,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.7, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v3.11.0, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shellany (v0.0.1, rbenv: 2.5.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="spork (v0.9.2, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.7.1, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.1, rbenv: 2.5.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.3.13, rbenv: 2.5.0) [gem]" level="application" />

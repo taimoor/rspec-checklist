@@ -57,8 +57,8 @@
             <td><%= button_tag :downvote, value: 'downvote', id: restaurant.id, class: 'downvote  btn btn-sm btn-info'  %></td>
       <% end %>
         <td>
-          <span class="<%= restaurant.id %>_up"><%= restaurant.user_votes.sum(:upvote) %></span>
-          <td><span class="<%= restaurant.id %>_down"><%= restaurant.user_votes.sum(:downvote) %></span></td>
+          <span class="up-<%= restaurant.id %>"><%= restaurant.user_votes.sum(:upvote) %></span>
+          <td><span class="down-<%= restaurant.id %>"><%= restaurant.user_votes.sum(:downvote) %></span></td>
         <td>
           <span class="<%= restaurant.id %>_total"><%= restaurant.user_votes.sum(:upvote)- restaurant.user_votes.sum(:downvote) %></span>
         </td>

@@ -6,22 +6,23 @@ module Features
     end
 
     def with_registered_user
-      do_login('user@domain.com', 'password', true)
+      do_login('t@t.com', 'password1', true)
       expect(page).not_to have_current_path(new_user_session_path)
     end
 
     def do_login(username, password, force=true)
       do_logout if force
-
+      # binding.pry
       unless @current_test_user.present?
         @current_test_user = User.where(email: username).first
 
-        visit new_user_session_path # visit login_2_path #TODO here we can visit another light weight page to test if user is logged in
+        # visit new_user_session_path # visit login_2_path #TODO here we can visit another light weight page to test if user is logged in
+        visit '/users/sign_in'
         if logged_out?
           within_element('form') do |login_form|
             fill_in 'Email', :with => username
             fill_in 'Password', :with => password
-            click_button 'Sign in'
+            click_button 'Log in'
           end
         end
       end
@@ -32,7 +33,7 @@ module Features
     end
 
     def current_test_user
-      binding.pry
+      # binding.pry
       @current_test_user
     end
 
